@@ -19,6 +19,13 @@
     }
 
 
+function deleteblock(){
+
+
+    document.getElementById('delBTN').disabled = true;
+            document.getElementById('delBTN').style="background-color: #007BFF;"
+}
+
  function Validate() {
         let val1 = true;
         let val2 = true;
@@ -70,8 +77,8 @@
         <div class="Menu">
             <a type="text" name="label" style="color: red"></a>
             <input type="hidden" name="id" value="{{user.id}}">
-            <input value="{{user.name}}" name="name" type="text" oninput="Validate()" placeholder="Имя" >
-            <input value="{{user.second_name}}" name="second_name" type="text" oninput="Validate()" placeholder="Фамилия" >
+            <input value="{{user.name}}" name="name" type="text" oninput="Validate()" onchange="deleteblock()" placeholder="Имя" >
+            <input value="{{user.second_name}}" name="second_name" type="text" oninput="Validate()"  onchange="deleteblock()" placeholder="Фамилия" >
             <input value="{{user.number}}" name="number" type="number" oninput="Validate()" pattern="^37529\d{7}$" placeholder="Номер" >
        </div>
 

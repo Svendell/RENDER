@@ -1,0 +1,85 @@
+
+<script>
+    let name = null;
+    let number = null;
+    function deleteUser(userId) {
+        // Используем fetch для отправки запроса на удаление
+        fetch(`/delete/${userId}`, {
+            method: 'DELETE'
+        })
+        .then(response => response.json())
+        .then(data => {
+            window.location='/main'
+            console.log(data);
+        })
+        .catch(error => {
+            window.location='/main'
+            console.error('Error:', error);
+        });
+    }
+
+
+ function Validate() {
+        let val1 = true;
+        let val2 = true;
+        let val3 = true;
+  
+        let prefix = [3,7,5,2,9];
+        if(document.getElementsByName('name')[0].value.length <=0 
+            ||
+            document.getElementsByName('second_name')[0].value.length <=0){
+                document.getElementsByName('label')[0].textContent="Плохое имя или фамилия";
+                val3=false
+            }
+            
+       var numberValue = document.getElementsByName('number')[0].value;
+        var regex = new RegExp("^37529\\d{7}$");
+        if (!regex.test(numberValue)) {
+            document.getElementsByName('label')[0].textContent="Плохое number";
+                val2 = false;
+        }
+
+        if(document.getElementsByName('number')[0].value.length != 12){
+            document.getElementsByName('label')[0].textContent="number != 12";
+            val1 = false;
+        }
+            
+
+        if(val1 && val2 && val3){
+            document.getElementById('btn_submit').disabled = false;
+            document.getElementById('btn_submit').style="background-color: #007BFF;"
+            document.getElementsByName('label')[0].textContent="";
+        }else{
+            document.getElementById('btn_submit').disabled = true;
+            document.getElementById('btn_submit').style="background-color: #ccc;"
+        }
+    }
+
+</script>
+
+
+
+
+
+
+
+
+<div>
+    <form action="/update" method="POST">
+
+        <div class="Menu">
+            <a type="text" name="label" style="color: red"></a>
+            <input type="hidden" name="id" value="{{user.id}}">
+            <input value="{{user.name}}" name="name" type="text" oninput="Validate()" placeholder="Имя" >
+            <input value="{{user.second_name}}" name="second_name" type="text" oninput="Validate()" placeholder="Фамилия" >
+            <input value="{{user.number}}" name="number" type="number" oninput="Validate()" pattern="^37529\d{7}$" placeholder="Номер" >
+       </div>
+
+        <div class="Menu">
+            <button id="btn_submit" type="Submit" onmouseenter="Validate()" disabled>Изменить</button>
+            <button id ='delBTN' type="button"  onclick="deleteUser('{{user.id}}')">Удалить</button>
+            <button type="button" onclick="{{exit}}">Отказаться</button>
+        </div>
+
+    </form>
+</div>

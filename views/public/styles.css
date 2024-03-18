@@ -1,0 +1,67 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+    font-family: Arial, sans-serif;
+}
+
+.NumbersBook, form {
+    width: 500px; /* Увеличьте ширину до нужного размера */
+    margin-bottom: 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+}
+
+.Menu{
+    margin-bottom: 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+}
+
+.NumbersBook ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.NumbersBook li {
+    margin-bottom: 10px;
+    border: 1px solid #ccc; /* Добавьте это, чтобы создать границу вокруг каждого элемента li */
+    padding: 0px 0px 0px 10px; /* Добавьте это, чтобы создать немного пространства вокруг текста внутри каждого элемента li */
+}
+
+.NumbersBook a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold; /* Добавьте это, чтобы сделать текст более жирным */
+}
+
+input[type="text"], input[type="number"] {
+    width: 100%;
+    padding: 10px 0px 10px 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    width: 30%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007BFF;
+    color: #fff;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}

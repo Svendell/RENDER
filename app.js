@@ -24,6 +24,12 @@ app.use(express.static(publicPath));
 
 
 //#region Маршруты
+app.get('/', async function(req, res) {
+    res.redirect('/main');
+    res.end();
+});
+
+
 app.get('/main', async function(req, res) {
 	fs.readFile('DB.json', 'utf8', (err, users) => {
 		if (err) {console.error(err);return;}
